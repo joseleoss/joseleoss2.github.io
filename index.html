@@ -1,25 +1,59 @@
-<!DOCTYPE html>
+import 'package:flutter/material.dart';
 
-<html>
+void main() {
+  runApp(MyApp());
+}
 
-<head>
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Programa Layout'),
+          backgroundColor: Colors.purple[200],
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Layout Superior
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                'Layout Superior',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
 
-<title>Jogo da Velha Responsivo</title>
+            // Meu Aplicativo (Contêiner Azul)
+            Container(
+              width: 150,
+              height: 200,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.green,
+                border: Border.all(color: Colors.blue, width: 3),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                'Meu Aplicativo',
+                style: TextStyle(color: Colors.yellow, fontSize: 19),
+                textAlign: TextAlign.center,
+              ),
+            ),
 
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-  <div id="game-board">
-
-    </div>
-
-  <div id="message"></div>  <!-- Para exibir mensagens (vencedor, empate) -->
-
-  <script src="script.js"></script>
-
-</body>
-
-</html>
+            // Layout Inferior
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                'Layout Inferior',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
